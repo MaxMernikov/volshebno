@@ -1,1 +1,14 @@
 %h1 hello
+
+= form_tag init_path do
+  = text_field_tag :app_name
+  = label_tag :app_name, '1. enter application name (ex. mastercard-promo)'
+  %br
+  %br
+
+  = text_field_tag :repo_url
+  = label_tag :repo_url, '2. enter git repository url (for capistrano)'
+  %br
+  %br
+
+  = submit_tag 'Enjoy!'
