@@ -1,13 +1,16 @@
 %h1 hello
 
 = form_tag init_path do
-  = text_field_tag :app_name
+
   = label_tag :app_name, '1. enter application name (ex. mastercard-promo)'
+  %br
+  = text_field_tag :app_name, '', { style: 'width: 300px' }
   %br
   %br
 
-  = text_field_tag :repo_url
   = label_tag :repo_url, '2. enter git repository url (for capistrano)'
+  %br
+  = text_field_tag :repo_url, '', { style: 'width: 440px' }
   %br
   %br
 
@@ -16,4 +19,5 @@
 %p что делает эта штука
 %ul
   %li настраивает PostgreSQL
+  %li настраивает деплой Capistrano для stage
 
