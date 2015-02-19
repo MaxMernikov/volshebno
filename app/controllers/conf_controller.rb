@@ -1,31 +1,45 @@
 class ConfController < ApplicationController
   def init
-    app_snake_case = params[:app_name].gsub(/[\ \-]/, '_')
-    app_class = app_snake_case.classify
+    @app_snake_case = params[:app_name].gsub(/[\ \-]/, '_')
+    @app_class = @app_snake_case.classify
 
-    # change_application_rb(app_class)
-    change_session_store_rb(app_snake_case)
-    # change_index_haml
+    change_application_rb
+    change_session_store_rb
+    init_database_yml
+    change_index_haml
 
-    redirect_to root_path(app_snake_case)
+    redirect_to root_path
   end
 
-  def change_application_rb(app_class)
+  def change_application_rb
     file_name = 'config/application.rb'
     text = File.read(file_name)
 
-    new_contents = text.sub('Cocon', app_class)
+    new_contents = text.sub('Cocon', @app_class)
 
     File.open(file_name, "w") {|file| file.puts new_contents }
   end
 
-  def change_session_store_rb(app_snake_case)
+  def change_session_store_rb
     file_name = 'config/initializers/session_store.rb'
     text = File.read(file_name)
 
-    new_contents = text.sub('cocon', app_snake_case)
+    new_contents = text.sub('cocon', @app_snake_case)
 
     File.open(file_name, "w") {|file| file.puts new_contents }
+  end
+
+  def init_database_yml
+    file_name = 'Gemfile'
+    text = File.read(file_name)
+
+    new_contents = text.sub('sqlite3', 'pg')
+    File.open(file_name, "w") {|file| file.puts new_contents }
+
+    text = File.read('lib/cocon/config/database.yml')
+    new_contents = text.gsub('cocon', @app_snake_case).sub('#point_001', SecureRandom.hex)
+
+    File.open('config/database.yml', "w") {|file| file.puts new_contents }
   end
 
   def change_index_haml
