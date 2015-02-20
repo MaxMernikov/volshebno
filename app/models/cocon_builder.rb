@@ -45,11 +45,12 @@ class CoconBuilder
 
   def self.add_admin_panel
     # install devise
-    file_name = 'Gemfile'
-    text = File.read(file_name)
+    %x('rails generate devise:install')
+    # file_name = 'Gemfile'
+    # text = File.read(file_name)
 
-    new_contents = text.sub('# cocon-end', "gem 'devise'\n# cocon-end")
-    File.open(file_name, "w") {|file| file.puts new_contents }
+    # new_contents = text.sub("gem 'devise'", '')
+    # File.open(file_name, "w") {|file| file.puts new_contents }
   end
 
   def self.change_index_haml
