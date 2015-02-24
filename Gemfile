@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
-gem 'sqlite3'
+gem 'pg'
 
 
 # front-end
@@ -16,7 +16,8 @@ gem 'haml'
 gem 'awesome_print'
 gem 'sdoc', '~> 0.4.0', group: :doc #bundle exec rake doc:rails generates the API under doc/api.
 
-gem 'devise' #point_001
+gem 'devise'
+gem 'bootstrap-sass', '~> 3.3.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

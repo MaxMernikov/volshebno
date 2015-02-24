@@ -2,7 +2,7 @@ set :stage, :staging
 
 set :branch, 'develop'
 
-set :deploy_to, '/home/webmaster/www/staging/staging.cocon.projects.digitalizm.com/www/'
+set :deploy_to, '/home/webmaster/www/staging/staging.volshebno.projects.digitalizm.com/www/'
 
 set :rails_env, 'staging'
 

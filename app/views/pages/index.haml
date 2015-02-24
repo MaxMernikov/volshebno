@@ -1,24 +1,3 @@
-%h1 hello
+%h1 almost done!
 
-= form_tag init_path do
-
-  = label_tag :app_name, '1. enter application name (ex. mastercard-promo)'
-  %br
-  = text_field_tag :app_name, '', { style: 'width: 300px' }
-  %br
-  %br
-
-  = label_tag :repo_url, '2. enter git repository url (for capistrano)'
-  %br
-  = text_field_tag :repo_url, '', { style: 'width: 440px' }
-  %br
-
-  %p что делает эта штука
-  %ul
-    %li настраивает PostgreSQL
-    %li настраивает деплой Capistrano для stage
-    %li 
-      = check_box_tag :admin_panel, '', { checked: true }
-      = label_tag :admin_panel, 'разворачивает админку (с установкой Devise)'
-
-  = submit_tag 'Enjoy!'
+now restart your application

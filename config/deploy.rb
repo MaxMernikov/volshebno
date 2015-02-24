@@ -1,5 +1,5 @@
 set :application, 'mastercard-lounge'
-set :repo_url, '#point_001'
+set :repo_url, 'git@github.com:MaxMernikov/volshebno.git'
 set :scm, :git
 set :ssh_options, { :forward_agent => true }
 set :keep_releases, 3

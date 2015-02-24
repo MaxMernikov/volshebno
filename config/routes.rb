@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :admins, path: 'admin',
+    controllers: { sessions: "admin/sessions" },
+    skip: [ :registration ]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'pages#index'
+  namespace 'admin' do
+    root 'dashboards#index'
+  end
 
   post '/init' => 'conf#init'# erase_me
 
