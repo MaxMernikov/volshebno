@@ -84,10 +84,10 @@ class CoconBuilder
     FileUtils.mkdir('app/views/admin') unless Dir.exists?('app/views/admin')
     FileUtils.cp_r('lib/cocon/admin/views/admin/.', 'app/views/admin', :verbose => true)
 
-    FileUtils.mkdir('app/assets/javascripts/admin')
+    FileUtils.mkdir('app/assets/javascripts/admin') unless Dir.exists?('app/assets/javascripts/admin')
     FileUtils.cp('lib/cocon/admin/assets/javascripts/admin.js', 'app/assets/javascripts/admin.js')
 
-    FileUtils.mkdir('app/assets/stylesheets/admin')
+    FileUtils.mkdir('app/assets/stylesheets/admin') unless Dir.exists?('app/assets/stylesheets/admin')
     FileUtils.cp('lib/cocon/admin/assets/stylesheets/admin.sass', 'app/assets/stylesheets/admin.sass')
 
     FileUtils.cp('lib/cocon/admin/views/layouts/admin.haml', 'app/views/layouts/admin.haml')
