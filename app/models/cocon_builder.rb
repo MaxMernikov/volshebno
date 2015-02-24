@@ -71,6 +71,7 @@ class CoconBuilder
     File.open(file_name, "w") {|file| file.puts new_contents }
 
     # copy files
+    FileUtils.mkdir('db/migrate') unless Dir.exists?('db/migrate')
     FileUtils.cp('lib/cocon/admin/migrate/20150220102726_devise_create_admins.rb', 'db/migrate/20150220102726_devise_create_admins.rb')
     FileUtils.cp('lib/cocon/admin/models/admin.rb', 'app/models/admin.rb')
     FileUtils.cp('lib/cocon/admin/models/admin.rb', 'app/assets/javascripts/admin.js')
