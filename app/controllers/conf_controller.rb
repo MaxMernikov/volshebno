@@ -12,6 +12,6 @@ class ConfController < ApplicationController
 
     CoconBuilder.change_index_haml
 
-    redirect_to root_path
+    render 'pages/index'
   end
 end

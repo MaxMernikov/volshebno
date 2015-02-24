@@ -66,7 +66,7 @@ class CoconBuilder
     text = File.read(file_name)
     new_contents = text.sub('Rails.application.routes.draw do', "Rails.application.routes.draw do\n  devise_for :admins, path: 'admin',\n    controllers: { sessions: \"admin/sessions\" },\n    skip: [ :registration ]\n")
 
-    new_contents = new_contents.sub("root 'pages#index'", "namespace 'admin' do\n    root 'dashboards#index'\n  end")
+    new_contents = new_contents.sub("root 'pages#index'", "root 'pages#index'\n  namespace 'admin' do\n    root 'dashboards#index'\n  end")
 
     File.open(file_name, "w") {|file| file.puts new_contents }
 
