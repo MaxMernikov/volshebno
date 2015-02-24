@@ -10,9 +10,8 @@ Rails.application.routes.draw do
   root 'pages#index'
   namespace 'admin' do
     root 'dashboards#index'
+    resources :categories
   end
-
-  post '/init' => 'conf#init'# erase_me
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

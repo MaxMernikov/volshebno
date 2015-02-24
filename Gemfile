@@ -19,6 +19,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc #bundle exec rake doc:rails generates the AP
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.3'
 
+gem 'inherited_resources'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug' 

@@ -5,6 +5,9 @@
       %li{ class: active_menu('admin/dashboards', 'index') }
         = link_to 'Dashboard', admin_root_path
 
+      %li{ class: active_menu('admin/categories') }
+        = link_to 'Категории', admin_categories_path
+
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown{ class: active_menu(['admin/promoters', 'admin/captcha', 'admin/settings']) }
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

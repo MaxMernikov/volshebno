@@ -1,0 +1,12 @@
+.row
+  .col-xs-8.col-xs-offset-2
+    = form_for([:admin, resource], html: {role: 'form'}) do |f|
+      - if resource.errors.present?
+        = render 'admin/partials/errors', errors: resource.errors
+
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+
+      .form-group
+        = f.submit 'Сохранить', class: 'btn btn-success'
