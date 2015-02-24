@@ -12,12 +12,13 @@
   %br
   = text_field_tag :repo_url, '', { style: 'width: 440px' }
   %br
-  %br
+
+  %p что делает эта штука
+  %ul
+    %li настраивает PostgreSQL
+    %li настраивает деплой Capistrano для stage
+    %li 
+      = check_box_tag :admin_panel, '', { checked: true }
+      = label_tag :admin_panel, 'разворачивает админку (с установкой Devise)'
 
   = submit_tag 'Enjoy!'
-
-%p что делает эта штука
-%ul
-  %li настраивает PostgreSQL
-  %li настраивает деплой Capistrano для stage
-

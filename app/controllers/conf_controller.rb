@@ -8,7 +8,7 @@ class ConfController < ApplicationController
     CoconBuilder.change_session_store_rb(app_snake_case)
     CoconBuilder.init_database_yml(app_snake_case)
     CoconBuilder.init_capistrano(app_snake_case, repo_url)
-    CoconBuilder.add_admin_panel
+    CoconBuilder.add_admin_panel if params[:admin_panel]
 
     CoconBuilder.change_index_haml
 
