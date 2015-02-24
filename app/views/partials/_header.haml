@@ -1,0 +1,117 @@
+%header.main-header
+  .bg
+  .row.top
+    .columns
+      %h1.title.clearfix{:role => "banner"}
+        %a{:href => "/", :role => "banner"}
+          Volshebno.by
+  / .row
+  .bottom-row
+    .row
+      .columns.menu-container
+        .main-menu
+          %nav.widescreen.clearfix{:role => "navigation"}
+            %ul.font-nav
+              %li.nav-item
+                %a.nav-item-link{:href => "/"}
+                  Главная
+              %li.nav-item.dropdown
+                %a.nav-item-link{:href => "#"}
+                  Каталог
+                  %span{"aria-hidden" => "true"} ↓
+                %ul.sub-nav.catalog
+                  %li.sub-nav-item.row
+                    .columns.large-3
+                      %h3.title Категории
+                      %ul
+                        %li
+                          %a{:href => "#", :title => ""} Все
+                        %li
+                          %a{:href => "#", :title => ""} Chocolates &amp; Candy
+                        %li
+                          %a{:href => "#", :title => ""} Oils &amp; Vinegars
+                        %li
+                          %a{:href => "#", :title => ""} Drinks
+                    .columns.large-3
+                      %h3.title Price
+                      %ul
+                        %li
+                          %a{:href => "#", :title => ""} Under $10
+                        %li
+                          %a{:href => "#", :title => ""} $10 - $20
+                        %li
+                          %a{:href => "collections/20-and-over.html", :title => ""} $20 and over
+                    .columns.large-3
+                      %h3.title About
+                      %ul
+                        %li
+                          %a{:href => "search.html", :title => ""} Search
+                        %li
+                          %a{:href => "pages/theme-features.html", :title => ""} Theme Features
+                        %li
+                          %a{:href => "pages/features.html", :title => ""} Theme Settings
+                        %li
+                          %a{:href => "pages/contact.html", :title => ""} Contact
+      .mobile-tools
+        %a.glyph.menu{:href => ""}
+        %a.glyph.search{:href => "search.html"}
+  .main-menu-dropdown-panel
+    .row
+  .mobile-menu
+    %nav{:role => "navigation"}
+      %ul.font-nav
+        %li.nav-item
+          %a.nav-item-link{:href => "index.html"}
+            Home
+        %li.nav-item.dropdown
+          %a.dropdown-link{:href => "collections/all.html"}
+            Catalog
+            %span.glyph.plus{"aria-hidden" => "true"}
+            %span.glyph.minus{"aria-hidden" => "true"}
+          %ul.sub-nav.catalog
+            %li.bg
+            %li.sub-nav-item
+              %a.dropdown-link{:href => ""}
+                Collections
+                %span.glyph.plus{"aria-hidden" => "true"}
+                %span.glyph.minus{"aria-hidden" => "true"}
+              %ul.sub-nav
+                %li.bg
+                %li
+                  %a{:href => "collections/all.html", :title => ""} All
+                %li
+                  %a{:href => "collections/chocolate-candy.html", :title => ""} Chocolates &amp; Candy
+                %li
+                  %a{:href => "collections/oils-vinegars.html", :title => ""} Oils &amp; Vinegars
+                %li
+                  %a{:href => "collections/drinks.html", :title => ""} Drinks
+            %li.sub-nav-item
+              %a.dropdown-link{:href => ""}
+                Special
+                %span.glyph.plus{"aria-hidden" => "true"}
+                %span.glyph.minus{"aria-hidden" => "true"}
+              %ul.sub-nav
+                %li.bg
+                %li
+                  %a{:href => "collections/on-sale-1.html", :title => ""} On Sale
+                %li
+                  %a{:href => "collections/new.html", :title => ""} New
+                %li
+                  %a{:href => "collections/featured-products.html", :title => ""} Featured Products
+        %li.nav-item.dropdown
+          %a.dropdown-link{:href => "pages/theme-features.html"}
+            Theme
+            %span.glyph.plus{"aria-hidden" => "true"}
+            %span.glyph.minus{"aria-hidden" => "true"}
+          %ul.sub-nav
+            %li.bg
+            %li.sub-nav-item
+              %a{:href => "#", :title => ""} Buy Theme
+            %li.sub-nav-item
+              %a{:href => "#", :title => ""} Documentation
+            %li.sub-nav-item
+              %a{:href => "#", :title => ""} Features
+            %li.sub-nav-item
+              %a{:href => "#", :title => ""} Styles
+  .row
+    .header-divider

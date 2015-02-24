@@ -1,3 +1,82 @@
-%h1 almost done!
-
-now restart your application
+%section.main-content
+  %section.slider.dark
+    .row
+      .slides
+        .slide
+          %img{:alt => "", :src => "http://cdn.shopify.com/s/files/1/0289/0326/t/2/assets/home-slider-slide-1.jpg?5832054538588921208"}/
+          .caption.left.middle.text-left
+            .bg
+            %h2.title Top 10 Summer Ciders
+            %h3.sub-title We share our cider selection, hand-picking the best from around the globe
+            %a.button{:href => "#"} Buy Theme
+          / .slide_caption
+        .slide
+          %img{:alt => "", :src => "http://cdn.shopify.com/s/files/1/0289/0326/t/2/assets/home-slider-slide-2.jpg?5832054538588921208"}/
+          .caption.center.middle.text-left
+            .bg
+            %h2.title Divine Dairy
+            %h3.sub-title Proudly certified organic biodynamic hand made cheese, now in-store!
+            %a.button{:href => "collections/all/products/divine-dairy-double-cream-brie.html"} More Info
+          / .slide_caption
+        .slide.video
+          %img{:alt => "", :src => "http://cdn.shopify.com/s/files/1/0289/0326/t/2/assets/home-slider-slide-3.jpg?5832054538588921208"}/
+          %a.play-button{:href => "https://vimeo.com/66766676"}
+            .triangle
+  .modal.video
+    .bg
+    %a.close.glyph.cross{"aria-hidden" => "true"}
+    .player.columns.large-8
+      .flex-video
+    .caption.columns.large-4
+  .modal-mask
+  / #product-slider
+  .widgets
+    .small-promos
+      .row
+        .columns.large-4
+          .image-text-widget
+            %a{:href => "collections/new.html"}
+              %img{:alt => "Daily Deli", :src => "http://cdn.shopify.com/s/files/1/0289/0326/t/2/assets/home-widget-image-text-1.jpg?5832054538588921208"}/
+              .caption
+                .bg
+                .inner
+                  %h1 Daily Deli Goods
+                  %h2 Shop New
+        .columns.large-4
+          .image-text-widget
+            %a{:href => "collections/drinks.html"}
+              %img{:alt => "From the Bar", :src => "http://cdn.shopify.com/s/files/1/0289/0326/t/2/assets/home-widget-image-text-2.jpg?5832054538588921208"}/
+              .caption
+                .bg
+                .inner
+                  %h1 From the Bar
+                  %h2 Shop Specialty
+        .columns.large-4
+          .image-text-widget
+            %a{:href => "https://themes.shopify.com/themes/blockshop/styles/deli"}
+              %img{:alt => "Theme Features", :src => "http://cdn.shopify.com/s/files/1/0289/0326/t/2/assets/home-widget-image-text-3.jpg?5832054538588921208"}/
+              .caption
+                .bg
+                .inner
+                  %h1 Response &amp; Retina Ready
+                  %h2 Buy Theme
+  .dark
+    .row.header
+      .columns
+        %h2.font-headings.list-of-products.clearfix Список продуктов
+    .row.content
+      .product-grid.clearfix
+        //это блоки с продуктами
+        .product-item
+          .image-wrapper
+            %a{:href => "collections/featured-products/products/rococo-sea-salt-wafers.html"}
+              %img.lazyOwl{:alt => "Rococo Sea Salt Wafers", "data-src" => "//cdn.shopify.com/s/files/1/0289/0326/products/jpeg-2_large.jpeg?v=1383689015", :src => "http://cdn.shopify.com/s/files/1/0289/0326/products/jpeg-2_large.jpeg?v=1383689015"}/
+          .caption
+            %p.title
+              %a{:href => "collections/featured-products/products/rococo-sea-salt-wafers.html"}
+                Rococo Sea Salt Wafers
+            %p.vendor
+              %a{:href => "collections/vendors-q=The%20Deli%20Co.html", :title => ""} The Deli Co
+            %p.price
+              $12.95
+  
