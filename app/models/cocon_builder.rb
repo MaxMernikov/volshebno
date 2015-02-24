@@ -13,6 +13,8 @@ class CoconBuilder
 
     new_contents = text.sub('cocon', app_snake_case)
     File.open(file_name, "w") {|file| file.puts new_contents }
+
+    ap 'init session_store'
   end
 
   def self.init_database_yml(app_snake_case)
@@ -26,6 +28,8 @@ class CoconBuilder
     new_contents = text.gsub('cocon', app_snake_case).sub('#point_001', SecureRandom.hex)
 
     File.open('config/database.yml', "w") {|file| file.puts new_contents }
+
+    ap 'init database'
   end
 
   def self.init_capistrano(app_snake_case, repo_url)
@@ -41,6 +45,8 @@ class CoconBuilder
 
     new_contents = text.sub('#point_001', repo_url)
     File.open(file_name, "w") {|file| file.puts new_contents }
+
+    ap 'init capistrano'
   end
 
   def self.add_admin_panel
@@ -53,10 +59,13 @@ class CoconBuilder
     new_contents = text.sub("# config.secret_key", 'config.secret_key')
     File.open(file_name, "w") {|file| file.puts new_contents }
 
+    ap 'init devise'
+
+
     file_name = 'config/routes.rb'
     text = File.read(file_name)
     new_contents = text.sub('Rails.application.routes.draw do', "Rails.application.routes.draw do\n  devise_for :admins, path: 'admin',\n    controllers: { sessions: \"admin/sessions\" },\n    skip: [ :registration ]\n")
-    root 'pages#index'
+
     new_contents = new_contents.sub("root 'pages#index'", "namespace 'admin' do\n    root 'dashboards#index'\n  end")
 
     File.open(file_name, "w") {|file| file.puts new_contents }
@@ -97,9 +106,11 @@ class CoconBuilder
     new_contents = text.sub("gem 'devise' #point_001", "gem 'devise'\ngem 'bootstrap-sass', '~> 3.3.3'")
     File.open(file_name, "w") {|file| file.puts new_contents }
 
+    ap 'init admin panel'
 
     text = File.read('tmp/pids/server.pid')
     %x(/bin/bash -l -c 'kill #{text}')
+    ap 'kill app'
   end
 
   def self.change_index_haml
@@ -107,5 +118,7 @@ class CoconBuilder
 
     new_contents = "%h1 almost done!\n\nnow restart your application"
     File.open(file_name, "w") {|file| file.puts new_contents }
+
+    ap 'change index page'
   end
 end
