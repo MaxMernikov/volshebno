@@ -45,12 +45,61 @@ class CoconBuilder
 
   def self.add_admin_panel
     # install devise
-    %x('rails generate devise:install')
-    # file_name = 'Gemfile'
-    # text = File.read(file_name)
+    %x(/bin/bash -l -c 'cd #{Rails.root} && bin/rails generate devise:install')
 
-    # new_contents = text.sub("gem 'devise'", '')
-    # File.open(file_name, "w") {|file| file.puts new_contents }
+    # change config
+    file_name = 'config/initializers/devise.rb'
+    text = File.read(file_name)
+    new_contents = text.sub("# config.secret_key", 'config.secret_key')
+    File.open(file_name, "w") {|file| file.puts new_contents }
+
+    file_name = 'config/routes.rb'
+    text = File.read(file_name)
+    new_contents = text.sub('Rails.application.routes.draw do', "Rails.application.routes.draw do\n  devise_for :admins, path: 'admin',\n    controllers: { sessions: \"admin/sessions\" },\n    skip: [ :registration ]\n")
+    root 'pages#index'
+    new_contents = new_contents.sub("root 'pages#index'", "namespace 'admin' do\n    root 'dashboards#index'\n  end")
+
+    File.open(file_name, "w") {|file| file.puts new_contents }
+
+    # copy files
+    FileUtils.cp('lib/cocon/admin/migrate/20150220102726_devise_create_admins.rb', 'db/migrate/20150220102726_devise_create_admins.rb')
+    FileUtils.cp('lib/cocon/admin/models/admin.rb', 'app/models/admin.rb')
+    FileUtils.cp('lib/cocon/admin/models/admin.rb', 'app/assets/javascripts/admin.js')
+
+    FileUtils.mkdir('app/controllers/admin') unless Dir.exists?('app/controllers/admin')
+    FileUtils.cp_r('lib/cocon/admin/controllers/admin/.', 'app/controllers/admin', :verbose => true)
+
+    FileUtils.cp('lib/cocon/admin/helpers/admin_helper.rb', 'app/helpers/admin_helper.rb')
+
+    FileUtils.mkdir('app/views/admin') unless Dir.exists?('app/views/admin')
+    FileUtils.cp_r('lib/cocon/admin/views/admin/.', 'app/views/admin', :verbose => true)
+
+    FileUtils.mkdir('app/assets/javascripts/admin')
+    FileUtils.cp('lib/cocon/admin/assets/javascripts/admin.js', 'app/assets/javascripts/admin.js')
+
+    FileUtils.mkdir('app/assets/stylesheets/admin')
+    FileUtils.cp('lib/cocon/admin/assets/stylesheets/admin.sass', 'app/assets/stylesheets/admin.sass')
+
+    FileUtils.cp('lib/cocon/admin/views/layouts/admin.haml', 'app/views/layouts/admin.haml')
+    FileUtils.cp('lib/cocon/admin/views/layouts/devise.haml', 'app/views/layouts/devise.haml')
+
+
+    file_name = 'config/initializers/assets.rb'
+    text = File.read(file_name)
+
+    new_contents = text.sub('# Rails.application.config.assets.precompile += %w( search.js )', "# Rails.application.config.assets.precompile += %w( search.js )\nRails.application.config.assets.precompile += %w( admin.css admin.js )")
+    File.open(file_name, "w") {|file| file.puts new_contents }
+
+
+    file_name = 'Gemfile'
+    text = File.read(file_name)
+
+    new_contents = text.sub("gem 'devise' #point_001", "gem 'devise'\ngem 'bootstrap-sass', '~> 3.3.3'")
+    File.open(file_name, "w") {|file| file.puts new_contents }
+
+
+    text = File.read('tmp/pids/server.pid')
+    %x(/bin/bash -l -c 'kill #{text}')
   end
 
   def self.change_index_haml

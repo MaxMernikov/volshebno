@@ -1,0 +1,16 @@
+%h1
+  События на
+  = Date.today
+
+.row
+  - @cities.each do |city|
+    .col-md-8
+      %h3
+        = link_to city.display_name, city.url
+        %small (#{city.name_eng})
+      .row
+        - city.offers.each do |offer|
+          .col-md-8.col-md-offset-1
+            = link_to offer.offer_title, offer.url, targer: :blank, class: 'text-success'
+
+%br

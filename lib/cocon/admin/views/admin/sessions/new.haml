@@ -1,0 +1,17 @@
+.auth-form.container-fluid
+  .row
+    .col-xs-4.col-xs-offset-4
+      .text-center
+        %h1 Вход
+      - if flash[:alert]
+        .alert.alert-danger
+          = flash[:alert]
+      = form_for resource, url: new_admin_session_path, class: "form" do |f|
+        .form-group
+          = f.label :email
+          = f.email_field :email, class: "form-control"
+        .form-group
+          = f.label :password
+          = f.password_field :password, class: "form-control"
+
+        = f.submit "Войти", class: "btn btn-primary btn-block"
