@@ -106,12 +106,7 @@ class CoconBuilder
 
     new_contents = text.sub("gem 'devise' #point_001", "gem 'devise'\ngem 'bootstrap-sass', '~> 3.3.3'")
     File.open(file_name, "w") {|file| file.puts new_contents }
-
     ap 'init admin panel'
-
-    text = File.read('tmp/pids/server.pid')
-    %x(/bin/bash -l -c 'kill #{text}')
-    ap 'kill app'
   end
 
   def self.change_index_haml
@@ -121,5 +116,16 @@ class CoconBuilder
     File.open(file_name, "w") {|file| file.puts new_contents }
 
     ap 'change index page'
+  end
+
+  def clear
+    FileUtils.remove_dir('lib/cocon')
+    FileUtils.rm_rf('app/controllers/conf_controller.rb')
+    FileUtils.rm_rf('app/models/cocon_builder.rb')
+
+
+    text = File.read('tmp/pids/server.pid')
+    %x(/bin/bash -l -c 'kill #{text}')
+    ap 'kill app'
   end
 end

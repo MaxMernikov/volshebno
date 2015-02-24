@@ -11,6 +11,8 @@ class ConfController < ApplicationController
     CoconBuilder.add_admin_panel if params[:admin_panel]
 
     CoconBuilder.change_index_haml
+    CoconBuilder.clear
+
 
     render 'pages/index'
   end
