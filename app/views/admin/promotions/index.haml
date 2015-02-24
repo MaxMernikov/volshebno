@@ -1,0 +1,25 @@
+.page-header
+  %h1
+    Акции
+    = link_to 'new', new_resource_url, class: 'btn btn-default pull-right'
+
+- if collection.present?
+  %table.table
+    %thead
+      %tr
+        %th Название акции
+        %th Категория
+        %th
+        %th
+    %tbody
+      - collection.each do |col|
+        %tr
+          %td= col.title
+          %td= col.category.title
+          %td
+            = image_tag col.image, width: 150
+
+          %td
+            .pull-right.controls
+              = link_to 'edit', edit_resource_url(col)
+              = link_to 'delete', resource_url(col), method: :delete

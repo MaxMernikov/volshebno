@@ -11,6 +11,11 @@ class CreatePromotions < ActiveRecord::Migration
       t.text :overview
       t.references :category, index: true
 
+      t.string :image_file_name
+      t.integer :image_file_size
+      t.string :image_content_type
+      t.datetime :image_updated_at
+
       t.timestamps null: false
     end
     add_foreign_key :promotions, :categories

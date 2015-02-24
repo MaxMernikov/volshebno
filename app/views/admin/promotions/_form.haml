@@ -1,0 +1,49 @@
+.row
+  .col-xs-8.col-xs-offset-2
+    = form_for([:admin, resource], html: {role: 'form'}) do |f|
+      - if resource.errors.present?
+        = render 'admin/partials/errors', errors: resource.errors
+
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+
+      .form-group
+        = f.label :category_id
+        = f.select :category_id, Category.all.map{|i| [i.title, i.id]}, class: 'form-control'
+
+      .form-group
+        .row
+          .col-xs-8
+            = f.label :image
+            = f.file_field :image
+          .col-xs-4
+            - if f.object.image.present?
+              = image_tag f.object.image.url, class: 'pull-right img-responsive'
+
+      .form-group
+        = f.label :start_at
+        = f.date_field :start_at, class: 'form-control'
+
+      .form-group
+        = f.label :end_at
+        = f.date_field :end_at, class: 'form-control'
+
+      .form-group
+        = f.label :cost
+        = f.text_field :cost, class: 'form-control'
+
+      .form-group
+        = f.label :discount_cost
+        = f.text_field :discount_cost, class: 'form-control'
+
+      .form-group
+        = f.label :store
+        = f.text_area :store, class: 'form-control'
+
+      .form-group
+        = f.label :store_url
+        = f.text_field :store_url, class: 'form-control'
+
+      .form-group
+        = f.submit 'Сохранить', class: 'btn btn-success'

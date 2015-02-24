@@ -8,6 +8,9 @@
       %li{ class: active_menu('admin/categories') }
         = link_to 'Категории', admin_categories_path
 
+      %li{ class: active_menu('admin/promotions') }
+        = link_to 'Акции', admin_promotions_path
+
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown{ class: active_menu(['admin/promoters', 'admin/captcha', 'admin/settings']) }
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
