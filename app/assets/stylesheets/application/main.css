@@ -1331,7 +1331,7 @@ html, body { /* */ background: #ffffff; /* */ }
 
 /*  3.2 - Product Grid
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.product-grid { margin: 0 auto; width: 60%; min-width: 290px; padding: 0; list-style: none; }
+.product-grid { margin: 0 auto; width: 80%; min-width: 290px; padding: 0; list-style: none; }
 @media only screen and (min-width: 768px) { .product-grid { width: 100%; } }
 .lt-ie9 .product-grid { width: 100%; }
 .product-grid.owl-carousel { margin: 0; width: 100%; min-width: 0; }

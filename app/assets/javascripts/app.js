@@ -12,7 +12,7 @@
     var $container = $('.content .product-grid');
     $container.isotope({
       itemSelector: '.product-item',
-      layoutMode: 'fitRows'
+      layoutMode: 'masonry'
     });
     $('.tags').on('click', 'span', function(){
       if ($(this).attr('data-filter') === '*') {
