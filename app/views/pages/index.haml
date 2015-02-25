@@ -92,9 +92,61 @@
                 %p.vendor
                   = link_to promotion.store, promotion.store_url
                 %p.price{ 'data-cost' => promotion.cost, 'data-discount_cost' => promotion.discount_cost }
-                  %span
+                  %span.actual-price
                     = promotion.discount_cost
-                    &#8381;
                   %span.old-price
                     = promotion.cost
-                    &#8381;
+    .modal-layout
+    .modal-product-container
+      %section.main-content.modal-product
+        %header
+        %article.row{:itemscope => "", :itemtype => "http://schema.org/Product", :style => 'padding: 40px 40px 0;'}
+          %meta{:content => "", :itemprop => "url"}/
+          %meta{:content => "", :itemprop => "image"}/
+          .positions.show-for-large-up.active
+            .columns.large-6
+              %h1.page-title{:itemprop => "name"} Carnaroli Rice
+              %h2.vendor{:itemprop => "brand"}
+                %a{:href => "#", :title => ""} Евроопт
+              .description
+                .rte-content{:itemprop => "description"}
+                  %p
+                    %span Luscious, creamy risotto requires the proper Italian rice. Grown in Piemonte, these "pearls" are pristine, plump and prized-magically maintaining distinct grains, even as they become rich and creamy with the gradual addition of hot broth. Many Northern Italian chefs will only use Carnaroli rice for their risotto. Embellish with chopped parsley and Parmesan cheese, with porcini, truffles or shellfish.
+              .prices
+                %h3
+                  Цена:
+                %span.actual-price 120000
+                %span.old-price 80000
+              .cart-form.custom
+                %h3 Вес
+                %span 1 кг
+            .columns.large-6
+              .photos
+                .container.clearfix
+                  %img{:alt => "Carnaroli Rice", :src => "//cdn.shopify.com/s/files/1/0289/0326/products/rice-01_grande.jpeg?v=1383688847"}/
+        %section.row.social-share
+          .columns
+            %h2.title Поделиться
+            %a.glyph.twitter
+              %span Tweet
+            %a.glyph.facebook
+              %span Like
+            %a.glyph.googleplus{:href => "https://plus.google.com/share?url=", :onclick => "javascript:window.open(this.href,  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;", :target => "_blank"}
+              %span Plus
+        %section.similar-products.row
+          %h2.title Похожие продукты
+          .product-grid
+            .clearfix
+            .product-item
+              .image-wrapper{:style => "opacity: 1;"}
+                %a{:href => "/collections/20-and-over/products/organic-arribbiata-chilli-tomato-sauce"}
+                  %img{:alt => "Daylesford Organic Arrabbiata Pasta Sauce", :src => "//cdn.shopify.com/s/files/1/0289/0326/products/condiments-01_large.jpeg?v=1383688889"}/
+              / .coll-image-wrap
+              .caption
+                %p.title
+                  %span
+                    Томатная паста
+                %p.vendor
+                  = link_to 'Евроопт', '#'
+                %p.price
+                  10000

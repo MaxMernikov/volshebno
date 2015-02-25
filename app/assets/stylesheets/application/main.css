@@ -445,8 +445,6 @@ select { width: 100%; }
 /* Foundation Visibility HTML Classes */
 .show-for-small, .show-for-medium-down, .show-for-large-down { display: inherit !important; }
 
-.show-for-medium, .show-for-medium-up, .show-for-large, .show-for-large-up, .show-for-xlarge { display: none !important; }
-
 .hide-for-medium, .hide-for-medium-up, .hide-for-large, .hide-for-large-up, .hide-for-xlarge { display: inherit !important; }
 
 .hide-for-small, .hide-for-medium-down, .hide-for-large-down { display: none !important; }
@@ -1809,7 +1807,19 @@ html, body { /* */ background: #ffffff; /* */ }
 .tags {margin: 0 auto 20px;}
 .sort-link {color: #999999; cursor: pointer;}
 .sort-link:hover,.sort-link.is-checked {color: #000;}
+.actual-price:after, .old-price:after {content:"\20BD"; font-size: 1em}
 
+/* Modal-product 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-
-
+.modal-layout {background: rgba(0,0,0,0.6); position: fixed; top:0; right: 0; left: 0; bottom: 0; z-index: 3; display: none;}
+.modal-product-container {position: absolute; z-index: 10; top: 100px; display: none;}
+.modal-product{width: 60%; margin: 0 auto; padding: 40px 40px 50px 40px; position: relative; background: #fff;}
+.modal-product:before {content: "\e618"; font-size: 3em; font-family: 'blockshop-icons'; speak: none; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; position: absolute; right: 0; cursor: pointer;}
+.similar-products, .social-share {text-align: center; margin-bottom: 15px}
+.modal-product .product-grid .product-item {width: 17%; vertical-align: top;}
+@media only screen and (max-width: 1050px) { .product-grid .title {font-size: 11px!important;} .modal-product .product-grid .product-item {width: 18%;} 
+.modal-product .product-grid .product-item .price { margin: 0; font-size: 11px;}}
+@media only screen and (max-width: 1380px) {.product-grid .product-item { width: 25%; } }
+@media only screen and (max-width: 1050px) {.product-grid .product-item { width: 33%; }}
+.modal-product h3 {margin: 0;} 

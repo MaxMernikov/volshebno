@@ -9,7 +9,7 @@
       pricePercent = (cost - discount) / costPercent;
       $('.circle.sale span', this).text(pricePercent.toFixed() + '%');
     });
-    var $container = $('.product-grid');
+    var $container = $('.content .product-grid');
     $container.isotope({
       itemSelector: '.product-item',
       layoutMode: 'fitRows'
