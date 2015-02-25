@@ -9,6 +9,24 @@
       pricePercent = (cost - discount) / costPercent;
       $('.circle.sale span', this).text(pricePercent.toFixed() + '%');
     });
+    var $container = $('.product-grid');
+    $container.isotope({
+      itemSelector: '.product-item',
+      layoutMode: 'fitRows'
+    });
+    $('.tags').on('click', 'span', function(){
+      if ($(this).attr('data-filter') === '*') {
+        var filterValue = '*'
+      } else { var filterValue = '.' + $(this).attr('data-filter'); }
+      $container.isotope({ filter: filterValue });
+    });
+    $('.tags').each( function( i, buttonGroup ) {
+      var $buttonGroup = $( buttonGroup );
+      $buttonGroup.on( 'click', 'span', function() {
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        $( this ).addClass('is-checked');
+      });
+    });
   });
   $(document).foundation();
 

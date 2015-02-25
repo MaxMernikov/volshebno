@@ -62,14 +62,25 @@
                   %h2 Buy Theme
   .dark
     .row.header
-      .columns
+      .columns.template-blog
         %h2.font-headings.list-of-products.clearfix Список продуктов
+        .tags.block.clearfix.colored-links.side-bar
+          %h3.title категории
+          %ul    
+            %li.item
+              %span.sort-link.is-checked{ :data => { :filter => '*' } }
+                Всё
+            - @categories.each do |category|
+              %li.item
+                %span.sort-link{ :data => { :filter => category.id } }
+                  = category.title 
+
     .row.content
       .product-grid.clearfix
         //это блоки с продуктами
         - 5.times do
           - @promotions.each do |promotion|
-            .product-item{ 'data-category' => promotion.category_id }
+            .product-item{ 'data-filter' => promotion.category_id, class: promotion.category_id }
               .image-wrapper
                 %span.circle.sale
                   %span
@@ -82,10 +93,8 @@
                   = link_to promotion.store, promotion.store_url
                 %p.price{ 'data-cost' => promotion.cost, 'data-discount_cost' => promotion.discount_cost }
                   %span
-                    = promotion.cost
-                  %span
-                    &rarr;
-                  %span
                     = promotion.discount_cost
-                  %b
-    
+                    &#8381;
+                  %span.old-price
+                    = promotion.cost
+                    &#8381;

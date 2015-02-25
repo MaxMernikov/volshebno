@@ -1803,3 +1803,13 @@ html, body { /* */ background: #ffffff; /* */ }
 .account-content .table-wrapper { margin: 40px 0 0 0; }
 .account-content .table-wrapper #order_details { margin: 0; }
 .account-content table th { word-wrap: break-word; max-width: 130px; }
+
+
+.old-price {color: #999999; text-decoration: line-through; padding-left: 5px;}
+.tags {margin: 0 auto 20px;}
+.sort-link {color: #999999; cursor: pointer;}
+.sort-link:hover,.sort-link.is-checked {color: #000;}
+
+
+
+
