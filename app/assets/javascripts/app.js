@@ -1,6 +1,15 @@
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-
+  $(document).ready(function(){
+    $('.product-item').each(function(){
+      var discount, cost, costPercent, pricePercent;
+      discount = $('.price', this).data('discount_cost');
+      cost = $('.price', this).data('cost');
+      costPercent = cost/100; 
+      pricePercent = (cost - discount) / costPercent;
+      $('.circle.sale span', this).text(pricePercent.toFixed() + '%');
+    });
+  });
   $(document).foundation();
 
   jQuery(function($) {

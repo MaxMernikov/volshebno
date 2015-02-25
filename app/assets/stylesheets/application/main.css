@@ -1347,7 +1347,7 @@ html, body { /* */ background: #ffffff; /* */ }
 .product-grid .circle { text-align: center; text-transform: uppercase; display: block; position: absolute; z-index: 1; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; color:  #f7f7f7  ; background:  #444444  ; font-family:  "lato" ; font-size: 1em; font-weight: 300; padding: 0; top: 5px; right: 5px; height: 65px; width: 65px; }
 .product-grid .circle:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -1px; /* Adjusts for spacing */ }
 .product-grid .circle span { max-width: 57px; margin-left: 4px; word-wrap: break-word; display: inline-block; vertical-align: middle; }
-@media only screen and (min-width: 1280px) { .product-grid .circle { font-size: 1.16667em; top: 15px; right: 15px; height: 90px; width: 90px; }
+@media only screen and (min-width: 1280px) { .product-grid .circle { font-size: 1.16667em; top: -15px; right: -15px; height: 90px; width: 90px; }
   .product-grid .circle span { max-width: 82px; } }
 .product-grid .sold-out { color:  #ffffff  ; background:  #cccccc  ; }
 .product-grid .title { font-family:  "lato" ; font-size: 1.16667em; }
